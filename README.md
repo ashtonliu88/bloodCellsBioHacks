@@ -1,2 +1,3 @@
 # computerVisionBioHacks
-Ashton, Shoto, Aadity, Akshat, and Ian
+Ashton, Shoto, Aadity, Akshat, Ian
+

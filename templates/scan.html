@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+
+{% block title %}Classify - Lung Check{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/messages.css') }}">
+
+<main style="margin-top: 80px;">
+    <div class="container mt-5"> 
+      <div class="row">
+          <div class="col-md-6 d-flex flex-column align-items-center">
+              <div class="d-flex align-items-center">
+                <img src="{{ url_for('static', filename='images/microphone.png') }}" alt="Microphone" 
+                     style="width: 30px; height: 30px; margin-right: 10px; align-self: center;">
+                <h1 class="me-2">Voice Memo</h1>
+              </div>
+              
+              <div class="audio-window" style="margin-top: 5%; border-radius: 15px; width: 100%; height: 300px; overflow: hidden; display: flex; justify-content: center; align-items: center;">
+                  <button id="recordButton" class="btn btn-primary">🎤 Start Recording</button>
+                  <p id="statusMessage" style="margin-top: 10px; font-weight: bold; text-align: center;"></p>
+                  <audio id="audioPlayback" controls style="display: none; width: 100%; margin-top: 10px;"></audio>
+              </div>
+          </div>
+
+          <div class="col-md-6 d-flex flex-column align-items-center">
+              <div class="d-flex align-items-center">
+                <img src="{{ url_for('static', filename='images/chat.png') }}" alt="Chatbot" 
+                     style="width: 30px; height: 30px; margin-right: 10px;">
+                <h1 class="me-2">Lung Check Assistant</h1>
+              </div>
+              
+              <div class="chatbox" style="margin-top: 5%; border: 3px solid var(--border); border-radius: 15px; width: 100%; height: 75vh; overflow: hidden; display: flex; flex-direction: column;">
+                <div class="chat-messages" style="flex-grow: 1; padding: 10px; overflow-y: auto;">
+                    <div id="messages"></div>
+                </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</main>
+
+<script>
+    let mediaRecorder;
+    let audioChunks = [];
+
+    document.getElementById('recordButton').addEventListener('click', function() {
+        if (!mediaRecorder || mediaRecorder.state === "inactive") {
+            startRecording();
+        } else {
+            stopRecording();
+        }
+    });
+
+    function startRecording() {
+        navigator.mediaDevices.getUserMedia({ audio: true })
+            .then(function(stream) {
+                mediaRecorder = new MediaRecorder(stream);
+                mediaRecorder.start();
+                document.getElementById('recordButton').textContent = "⏹ Stop Recording";
+                document.getElementById('statusMessage').textContent = "Recording... Speak now.";
+                
+                mediaRecorder.ondataavailable = function(event) {
+                    audioChunks.push(event.data);
+                };
+
+                mediaRecorder.onstop = function() {
+                    const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+                    audioChunks = [];
+                    const audioURL = URL.createObjectURL(audioBlob);
+                    document.getElementById('audioPlayback').src = audioURL;
+                    document.getElementById('audioPlayback').style.display = "block";
+
+                    uploadAudio(audioBlob);
+                };
+            })
+            .catch(function(err) {
+                console.error('Microphone access denied: ', err);
+                document.getElementById('statusMessage').textContent = "Microphone access denied.";
+            });
+    }
+
+    function stopRecording() {
+        mediaRecorder.stop();
+        document.getElementById('recordButton').textContent = "🎤 Start Recording";
+        document.getElementById('statusMessage').textContent = "Recording stopped.";
+    }
+
+    function uploadAudio(audioBlob) {
+    const formData = new FormData();
+    formData.append("audio", audioBlob, "recording.mp3");
+
+    fetch('/upload_audio', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Audio uploaded:', data);
+
+        if (data.error) {
+            addMessage("🚨 Error: " + data.error);
+        } else {
+            addMessage("🗣️ You: [Audio Sent]", true);
+            addMessage("🦠 Lung Check Assistant: " + (data.ai_response || "Sorry, no response received."));
+        }
+    })
+    .catch(err => {
+        console.error('Error uploading audio:', err);
+        addMessage("🚨 Error: Unable to process your request.");
+    });
+}
+
+
+
+    function addMessage(text) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = "bot-message";
+        messageDiv.innerHTML = `<p>${text}</p>`;
+        
+        document.getElementById('messages').appendChild(messageDiv);
+        document.getElementById('messages').scrollTop = document.getElementById('messages').scrollHeight;
+    }
+
+    setTimeout(() => addMessage("Welcome to Lung Check! Click the microphone to start recording."), 1000);
+</script>
+
+{% endblock %}
