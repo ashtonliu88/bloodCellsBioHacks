@@ -55,7 +55,7 @@ def upload_audio():
         gpt_response = openai.chat.completions.create(
             model="gpt-4",
             messages=[
-                {"role": "system", "content": "You are a medical assistant specializing in lung cancer detection."},
+                {"role": "system", "content": "You are a medical assistant specializing in lung cancer detection. You should try to respond to the patient in relatively short responses, rich with detail. (Maximum of 3 sentences)"},
                 {"role": "user", "content": transcribed_text}
             ]
         )
