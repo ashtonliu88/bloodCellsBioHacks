@@ -1,0 +1,15 @@
+{
+    "config": {
+        "commitizen": {
+        "path": "git-cz"
+        },
+        "git-cz": {
+        "config": "./changelog.config.js"
+        }
+    },
+    "devDependencies": {
+      "commitizen": "^4.3.1",
+      "git-cz": "^4.9.0"
+    }
+  }
+  

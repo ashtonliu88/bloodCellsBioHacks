@@ -1,0 +1,141 @@
+{
+    "types": [
+      {
+        "type": "Fix",
+        "section": "🐛 Bug Fixes",
+        "hidden": false
+      },
+      {
+        "type": "CriticalFix",
+        "section": "🚑 Critical Fixes",
+        "hidden": false
+      },
+      {
+        "type": "Performance",
+        "section": "🚀 Performance Improvements",
+        "hidden": false
+      },
+      {
+        "type": "Improve",
+        "section": "👍 Feature Improvements",
+        "hidden": false
+      },
+      {
+        "type": "Refactor",
+        "section": "♻️ Code Refactoring",
+        "hidden": false
+      },
+      {
+        "type": "Style",
+        "section": "👕 Code Style Fixes",
+        "hidden": false
+      },
+      {
+        "type": "Add",
+        "section": "✨ New Features",
+        "hidden": false
+      },
+      {
+        "type": "Design",
+        "section": "🎨 UI/UX & Design Changes",
+        "hidden": false
+      },
+      {
+        "type": "WIP",
+        "section": "🚧 Work in Progress",
+        "hidden": false
+      },
+      {
+        "type": "Config",
+        "section": "⚙ Configuration Changes",
+        "hidden": false
+      },
+      {
+        "type": "Package",
+        "section": "📦 Dependencies Added",
+        "hidden": false
+      },
+      {
+        "type": "Update",
+        "section": "🆙 Dependencies Updated",
+        "hidden": false
+      },
+      {
+        "type": "Wording",
+        "section": "📝 Wording Fixes",
+        "hidden": false
+      },
+      {
+        "type": "Docs",
+        "section": "📚 Documentation Updates",
+        "hidden": false
+      },
+      {
+        "type": "Comment",
+        "section": "💡 Comments & Notes",
+        "hidden": false
+      },
+      {
+        "type": "Security",
+        "section": "👮 Security Enhancements",
+        "hidden": false
+      },
+      {
+        "type": "Test",
+        "section": "💚 Tests & CI Improvements",
+        "hidden": false
+      },
+      {
+        "type": "CI",
+        "section": "🎡 CI/CD Changes",
+        "hidden": false
+      },
+      {
+        "type": "Files",
+        "section": "📂 File & Folder Manipulations",
+        "hidden": false
+      },
+      {
+        "type": "Move",
+        "section": "🚚 File Moves & Renaming",
+        "hidden": false
+      },
+      {
+        "type": "Log",
+        "section": "🔊 Logging & Debugging",
+        "hidden": false
+      },
+      {
+        "type": "LogDelete",
+        "section": "🔇 Logs Removed",
+        "hidden": false
+      },
+      {
+        "type": "Tracking",
+        "section": "📈 Analytics & Tracking",
+        "hidden": false
+      },
+      {
+        "type": "Review",
+        "section": "🧐 Code Review & Questions",
+        "hidden": false
+      },
+      {
+        "type": "Fun",
+        "section": "🍻 Fun Code Contributions",
+        "hidden": false
+      },
+      {
+        "type": "Ignore",
+        "section": "🙈 .gitignore Updates",
+        "hidden": false
+      },
+      {
+        "type": "BasicFix",
+        "section": "🛠️ Basic Bug Fixes",
+        "hidden": false
+      }
+    ],
+    "releaseCommitMessageFormat": "chore(release): 🏹 {{currentTag}}"
+  }
+  
