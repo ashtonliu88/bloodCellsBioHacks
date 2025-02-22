@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - Lung Check{% endblock %}
+
+{% block content %}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+      <main>
+        <div id="carousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+               <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-label="Slide 1" aria-current="true"></button>
+               <button type="button" data-bs-target="#carousel" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
+               <button type="button" data-bs-target="#carousel" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
+            </div>
+            <div class="carousel-inner">
+               <div class="carousel-item active">
+                  <div class="container">
+                     <div class="carousel-caption text-start">
+                        <h1 style="font-size: 34px;">Answer simple questions. Get AI-powered insights. Take control of your health.</h1>
+                        <p>Use advanced AI to assess your lung health and get guidance based on your responses.</p>
+                        <p><a class="btn btn-lg btn-primary" href="{{ url_for('scan') }}">Start Assessment</a></p>
+                     </div>
+                  </div>
+               </div>
+               <div class="carousel-item">
+                  <div class="container">
+                     <div class="carousel-caption">
+                        <h1>Personalized Health Analysis.</h1>
+                        <p>Our AI model listens to your responses and provides tailored insights based on lung health indicators.</p>
+                        <p><a class="btn btn-lg btn-primary" href="/">Learn more</a></p>
+                     </div>
+                  </div>
+               </div>
+               <div class="carousel-item">
+                  <div class="container">
+                     <div class="carousel-caption text-end">
+                        <h1>Check out our source code.</h1>
+                        <p>This project is open-source, built with Flask and AI-powered diagnostics.</p>
+                        <p><a class="btn btn-lg btn-primary" href="https://github.com/ashtonliu88/lungCancerDetectionBioHacks">Browse code</a></p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+            </button>
+         </div>
+      
+         <div class="container mt-4">
+          <div class="row">
+              <div class="col-12 col-sm-6 col-md-4 d-flex justify-content-center">
+                  <div class="box">
+                      <h1 class="box-title">Voice-Based Screening.</h1>
+                      <p class="box-paragraph">Respond to a series of AI-generated health questions using your voice. Our model processes your responses to detect patterns associated with different lung cancer types.</p>
+                  </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 d-flex justify-content-center">
+                  <div class="box">
+                      <h1 class="box-title">AI-Powered Classification.</h1>
+                      <p class="box-paragraph">Our system analyzes your responses and classifies potential lung cancer risks based on advanced machine learning models trained on medical datasets.</p>
+                  </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 d-flex justify-content-center">
+                  <div class="box">
+                      <h1 class="box-title">Guidance & Next Steps.</h1>
+                      <p class="box-paragraph">Receive AI-driven recommendations on possible next steps, whether it's seeking medical advice, getting further tests, or understanding lung health better.</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+      </main>
+{% endblock %}

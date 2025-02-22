@@ -1,0 +1,33 @@
+.message {
+    background-color: white;
+    border-radius: 10px;
+    margin: 5px 0; 
+    padding: 5px 10px; /* Adjust padding for consistent spacing around text */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex; /* Use flex to allow centering */
+    align-items: center; /* Align items vertically centered */
+    max-width: 90%; /* Keep the max-width for small boxes */
+    font-weight: 600;
+    word-wrap: break-word;
+    opacity: 0;
+    transition: opacity 0.5s;
+    animation: fadeIn 0.5s forwards;
+    line-height: 1.2; /* Slightly increase line-height for better spacing */
+    width: fit-content; /* Set width to fit content */
+}
+
+
+#messages {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    flex-wrap: wrap; /* Allow items to wrap */
+    justify-content: flex-start; /* Align items to the start */
+    gap: 10px; /* Add some space between messages */
+    margin-bottom: 10px; /* Add space below the messages */
+}
+
+@keyframes fadeIn {
+      to {
+          opacity: 1;
+      }
+  }

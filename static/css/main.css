@@ -1,0 +1,190 @@
+:root {
+    --primary-white: #ffffff;
+    --shade-dark: #cecdcd;
+    --font-primary: #4f4e4e;
+    --light-blue: #3FA5FF;
+    --light-blue-secondary: #066cc5;
+    --border: #B0A2A2;
+  }
+  
+  
+  body {
+    background-image: linear-gradient(90deg, var(--primary-white), var(--shade-dark)) !important;
+    background-attachment: fixed;
+    padding-top: 1rem;
+    padding-bottom: 3rem;
+    color: var(--font-primary);
+    font-family: 'Anek Gujarati';
+    text-shadow: 3px 3px 5px rgba(55, 54, 54, 0.5); /* Add shadow */
+    font-weight: 300;
+  }
+  
+  header {
+    font-style: bold;
+  }
+  
+  .navbar-brand {
+    font-family: 'Anek Gujarati';
+    font-weight: 1000; /* Ensure it's the medium variant */
+    text-shadow: 3px 3px 5px rgba(55, 54, 54, 0.5); /* Add shadow */
+  }
+  
+  .navbar-nav .nav-link {
+    font-weight: 600;
+    transition: font-size 0.3s ease, color 0.3s ease; /* Smooth transition */
+    font-size: 15px; /* Base font size */
+  }
+  
+  .navbar-nav .nav-link:hover {
+    font-size: 17px; /* Increase font size on hover */
+    color: var(--light-blue-secondary); /* Change color on hover (optional) */
+  }
+  
+  .scan-text {
+    color: #007bff; /* Change this to your desired color */
+    font-weight: 1000; /* Ensure it uses the medium variant */
+    text-shadow: 3px 3px 5px rgba(55, 54, 54, 0.5); /* Add shadow */
+  }
+  
+  .img-shadow {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Horizontal offset, vertical offset, blur radius, color */
+    border-radius: 8px; /* Optional: Adds rounded corners */
+  }
+  
+  
+  /* GLOBAL STYLES
+  -------------------------------------------------- */
+  /* Padding below the footer and lighter body text */
+  
+  
+  /* CUSTOMIZE THE CAROUSEL
+  -------------------------------------------------- */
+  /* Carousel base class */
+  .carousel {
+    background-image: linear-gradient(90deg, var(--light-blue), var(--light-blue-secondary));
+    margin-bottom: 4rem;
+  }
+  /* Since positioning the image, we need to help out the caption */
+  .carousel-caption {
+    bottom: 3rem;
+    z-index: 10;
+  }
+  
+  /* Declare heights because of positioning of img element */
+  .carousel-item {
+    height: 32rem;
+  }
+  
+  
+  /* MARKETING CONTENT
+  -------------------------------------------------- */
+  
+  /* Center align the text within the three columns below the carousel */
+  .marketing .col-lg-4 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  /* rtl:begin:ignore */
+  .marketing .col-lg-4 p {
+    margin-right: .75rem;
+    margin-left: .75rem;
+  }
+  /* rtl:end:ignore */
+  
+  
+  /* Featurettes
+  ------------------------- */
+  
+  .featurette-divider {
+    margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+  }
+  
+  /* Thin out the marketing headings */
+  /* rtl:begin:remove */
+  .featurette-heading {
+    letter-spacing: -.05rem;
+  }
+  
+  /* rtl:end:remove */
+  
+  /* RESPONSIVE CSS
+  -------------------------------------------------- */
+  
+  @media (min-width: 40em) {
+    /* Bump up size of carousel content */
+    .carousel-caption p {
+      margin-bottom: 1.25rem;
+      font-size: 1.25rem;
+      line-height: 1.4;
+    }
+  
+    .featurette-heading {
+      font-size: 50px;
+    }
+  }
+  
+  @media (min-width: 62em) {
+    .featurette-heading {
+      margin-top: 7rem;
+    }
+  }
+  
+  
+  .box {
+    width: 200rem; /* Set a fixed width for the boxes */
+    height: 220px; /* Set a fixed height for the boxes */
+    background-color: var(--primary-white); /* Example background color */
+    border: 2px solid var(--border); /* Example border */
+    border-radius: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+    margin: 0px; /* Add space around boxes */
+    display: block;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+  }
+  
+  .box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Darker shadow on hover */
+  }
+  
+  .custom-navbar {
+    background-image: linear-gradient(90deg, var(--primary-white), var(--shade-dark)) !important;
+  }
+  
+  @media (max-width: 576px) {
+    .box {
+        width: 100%; /* Make boxes full width on small screens */
+        height: auto; /* Allow height to adjust automatically */
+        margin: 10px 0; /* Add margin for vertical spacing */
+    }
+  }
+  
+  .box-title {
+    margin-top: 15px; /* Space between title and paragraph */
+    margin-bottom: 10px; /* Space between title and paragraph */
+    font-size: 1.5rem; /* Adjust title size */
+    font-weight: 900;
+    color: var(--light-blue-secondary);
+  }
+  
+  .box-paragraph {
+    margin: 0; /* Remove default margin */
+    font-size: 1rem; /* Adjust paragraph size */
+    font-weight: 1000;
+    padding: 5px;
+  }
+  
+  .btn-primary {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+  }
+  
+  .camera-window {
+    border: 5px var(--light-blue);
+    border-radius: 15px;
+    width: 100%;
+    height: 80vh;
+    overflow: hidden;
+  }
