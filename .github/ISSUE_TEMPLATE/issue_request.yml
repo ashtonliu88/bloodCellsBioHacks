@@ -1,6 +1,6 @@
-name: "🔥 バグレポート"
+name: "🔥 Bug Report"
 description: "Report a bug, request a feature, or ask a question."
-title: "🔥 バグレポート: Title"
+title: "🔥 Bug Report: Title"
 
 body:
   - type: markdown
