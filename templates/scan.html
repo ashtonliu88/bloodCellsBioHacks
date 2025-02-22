@@ -6,8 +6,8 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/messages.css') }}">
 
-<main>
-  <div class="container mt-4"> 
+<main style="margin-top: 80px;">
+    <div class="container mt-5"> 
       <div class="row">
           <div class="col-md-6 d-flex flex-column align-items-center">
               <div class="d-flex align-items-center">
@@ -87,20 +87,31 @@
     }
 
     function uploadAudio(audioBlob) {
-        const formData = new FormData();
-        formData.append("audio", audioBlob, "recording.wav");
+    const formData = new FormData();
+    formData.append("audio", audioBlob, "recording.mp3");
 
-        fetch('/upload_audio', {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Audio uploaded:', data);
-            addMessage("Audio uploaded successfully! Processing...");
-        })
-        .catch(err => console.error('Error uploading audio:', err));
-    }
+    fetch('/upload_audio', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Audio uploaded:', data);
+
+        if (data.error) {
+            addMessage("🚨 Error: " + data.error);
+        } else {
+            addMessage("🗣️ You: [Audio Sent]", true);
+            addMessage("🦠 Lung Check Assistant: " + (data.ai_response || "Sorry, no response received."));
+        }
+    })
+    .catch(err => {
+        console.error('Error uploading audio:', err);
+        addMessage("🚨 Error: Unable to process your request.");
+    });
+}
+
+
 
     function addMessage(text) {
         const messageDiv = document.createElement('div');
